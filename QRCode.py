@@ -1,10 +1,16 @@
 import qrcode
 
-print ("---------------------------")
-print ("Hey. I'm ready! \r\n")
+print('[INFO] This program generates QR code from texts.')
+try:
+    qr = qrcode.make(input('[INPUT] Enter text: '))
+    print ('[UPDATE] QR Code generated...')
 
-img = qrcode.make(input('Input data: \r\n'))
-img.save(input('Output file name: \r\n'))
+    print ('[UPDATE] Creating output file...')
+    qr.save(input('[INPUT] Enter output filename: '))
 
-print ('Done. \r\n')
-print ("---------------------------")
+    print('[SUCCESS] Execution Done.')
+    
+except Exception as e:
+    print("[FAILURE]: " + str(e))
+
+print('[INFO] Program Finished.')
